@@ -5,6 +5,11 @@ from pyrob.api import *
 
 @task(delay=0.05)
 def task_4_3():
+	def f():
+		for i in range(a):
+			move_left()
+			fill_cell()
+		move_down()		
 	a=1
 	b=0
 	while not wall_is_beneath():
@@ -19,20 +24,13 @@ def task_4_3():
 	move_left()
 	fill_cell()
 	while b>2:
-		for i in range(a):
-			move_left()
-			fill_cell()
-		move_down()
+		f()
 		b=b-1
 		for i in range(a):
 			move_right()
 		fill_cell()
 	fill_cell()
-	for i in range(a):
-		move_left()
-		fill_cell()
-	move_down()
-				
+	f()
 
 
 if __name__ == '__main__':
