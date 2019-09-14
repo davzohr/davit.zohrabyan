@@ -7,14 +7,12 @@ from pyrob.api import *
 def task_3_3():
 	if not wall_is_on_the_right():
 		move_right()
-	else:
-		if not wall_is_beneath():
+	elif not wall_is_beneath():
 			move_down()
-		else: 
-			if not wall_is_on_the_left():
-				move_left()
-			else:
-				move_up()
+	elif not wall_is_on_the_left():
+			move_left()
+	else:
+		move_up()
 
 
 if __name__ == '__main__':
