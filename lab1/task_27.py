@@ -16,8 +16,7 @@ def task_7_5():
 			fill_cell()
 			a=a+1
 			b=a
-		else:
-			pass			
+	pass	
 			
 
 
