@@ -6,6 +6,7 @@ from pyrob.api import *
 @task(delay=0.02)
 def task_2_4():
 	def f():
+		fill_cell()
 		for i in range(2):
 			move_right()
 			fill_cell()
@@ -19,21 +20,17 @@ def task_2_4():
 	move_down(n=2)
 	while not wall_is_beneath():
 		move_up()
-		fill_cell()
 		f()
 		while not wall_is_on_the_right():
 			move_right(n=2)
-			fill_cell()
 			f()
 		move_down(n=5)
 		while not wall_is_on_the_left():
 			move_left()
 	move_up()
-	fill_cell()
 	f()
 	while not wall_is_on_the_right():
 		move_right(n=2)
-		fill_cell()
 		f()
 	move_up()
 	while not wall_is_on_the_left():
