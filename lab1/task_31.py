@@ -13,12 +13,12 @@ def task_8_30():
 			move_down()
 		while not wall_is_on_the_right():
 			move_right()
-		while wall_is_beneath() and not wall_is_on_the_left():
+		while wall_is_beneath() and not wall_is_on_the_left():	
 			move_left()
-		if wall_is_on_the_left():
-			a=a+1
-		else:
+		if not wall_is_beneath():
 			pass
+		else:
+			a=a+1
 			
 		
 	
