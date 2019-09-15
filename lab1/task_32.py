@@ -33,7 +33,7 @@ def task_8_18():
 			while not wall_is_beneath():
 				move_down()
 			move_right()	
-	mov(a,ax)
+	mov('ax',a)		
 
 if __name__ == '__main__':
 	run_tasks()
