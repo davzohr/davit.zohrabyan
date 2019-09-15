@@ -12,13 +12,11 @@ def f():
 def task_8_29():
 	while not wall_is_on_the_left():
 		move_left()
-	if not wall_is_above():
-		f()
-	else:
+	if wall_is_above():
 		while not wall_is_on_the_right():
 			move_right()
-		if not wall_is_above():
-			f()	
+	if not wall_is_above():
+		f()	
 			
 if __name__ == '__main__':
 	run_tasks()
