@@ -30,12 +30,12 @@ cloud1_3 = gr.Circle(gr.Point(170,180),20)
 cloud1_3.setFill('white')
 cloud1_3.draw(window)
 
-tree = gr.Line(gr.Point(800,500), gr.Point(800,200))
+tree = gr.Line(gr.Point(800,550), gr.Point(800,250))
 tree.setWidth(50)
 tree.setOutline('brown')
 tree.draw(window)
 
-leaves1 = gr.Circle(gr.Point(800,200),30)
+leaves1 = gr.Circle(gr.Point(800,150),110)
 leaves1.setFill('green')
 leaves1.draw(window)
 
