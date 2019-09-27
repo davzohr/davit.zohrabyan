@@ -9,7 +9,7 @@ def draw_background(win):
     
     sky = gr.Rectangle(gr.Point(0,0), gr.Point(600,400))
     sky.draw(win)
-    sky.setFill('lightgrey')	
+    sky.setFill('#999DA0')	
 
 def draw_sun(win):
     sun = gr.Circle(gr.Point(540,60),50)
@@ -68,7 +68,33 @@ def draw_balcony(win):
 	railing = gr.Rectangle(gr.Point(15,360), gr.Point(355,340))
 	railing.draw(win)
 	railing.setFill('#222021')	
-    	
+	
+def draw_roof(win):
+    roof = gr.Polygon(gr.Point(0,150), gr.Point(30,120), gr.Point(340,120), gr.Point(370,150))
+    roof.draw(win)
+    roof.setFill('black')
+    
+    pipe = gr.Rectangle(gr.Point(60,80), gr.Point(70,135))
+    pipe.draw(win)
+    pipe.setFill('#222021')
+    
+    pipe = gr.Rectangle(gr.Point(300,80), gr.Point(310,120))
+    pipe.draw(win)
+    pipe.setFill('#222021')
+    
+def draw_clouds(win):
+	cloud = gr.Oval(gr.Point(20,100), gr.Point(500,50))
+	cloud.draw(win)
+	cloud.setFill('#48494B')
+	
+	cloud = gr.Oval(gr.Point(280,80), gr.Point(610,25))
+	cloud.draw(win)
+	cloud.setFill('#777B7E')
+	
+	cloud = gr.Oval(gr.Point(370,140), gr.Point(800,100))  
+	cloud.draw(win)
+	cloud.setFill('#777B7E')  
+    
 def main(win):
     """draws picture"""
     draw_background(win)
@@ -76,6 +102,8 @@ def main(win):
     draw_black_cloud(win)
     draw_wall_and_windows(win)
     draw_balcony(win)
+    draw_roof(win)
+    draw_clouds(win)
     #draw_pipes(win)
     #draw_grey_clouds(win)
     #draw_ghost(win)
