@@ -114,7 +114,6 @@ def main(win):
     draw_roof(win)
     draw_clouds(win)
     draw_pipes(win)
-    #draw_grey_clouds(win)
     #draw_ghost(win)
 
 main(win)
