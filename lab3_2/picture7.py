@@ -78,7 +78,7 @@ def draw_roof(win):
     pipe.draw(win)
     pipe.setFill('#222021')
     
-    pipe = gr.Rectangle(gr.Point(300,80), gr.Point(310,120))
+    pipe = gr.Rectangle(gr.Point(200,80), gr.Point(210,120))
     pipe.draw(win)
     pipe.setFill('#222021')
     
@@ -95,6 +95,15 @@ def draw_clouds(win):
 	cloud.draw(win)
 	cloud.setFill('#777B7E')  
     
+def draw_pipes(win):
+	pipe = gr.Rectangle(gr.Point(80,50), gr.Point(100,140))
+	pipe.draw(win)
+	pipe.setFill('#222021')
+	
+	pipe = gr.Rectangle(gr.Point(300,80), gr.Point(310,135))
+	pipe.draw(win)
+	pipe.setFill('#222021')    
+    
 def main(win):
     """draws picture"""
     draw_background(win)
@@ -104,7 +113,7 @@ def main(win):
     draw_balcony(win)
     draw_roof(win)
     draw_clouds(win)
-    #draw_pipes(win)
+    draw_pipes(win)
     #draw_grey_clouds(win)
     #draw_ghost(win)
 
@@ -112,6 +121,8 @@ main(win)
 
 win.getMouse()
 win.close()
+
+
 
 
 
