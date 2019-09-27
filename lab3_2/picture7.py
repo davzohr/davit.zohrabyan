@@ -56,7 +56,18 @@ def draw_balcony(win):
 	
 	right_column = gr.Rectangle(gr.Point(355,360), gr.Point(365,400))
 	right_column.draw(win)
-	right_column.setFill('#222021')		
+	right_column.setFill('#222021')
+	
+	a=42
+	for i in range(5):
+		column = gr.Rectangle(gr.Point(a,360), gr.Point(a+22,400))
+		column.draw(win)
+		column.setFill('#222021')
+		a+=66		
+    
+	railing = gr.Rectangle(gr.Point(15,360), gr.Point(355,340))
+	railing.draw(win)
+	railing.setFill('#222021')	
     	
 def main(win):
     """draws picture"""
@@ -73,7 +84,6 @@ main(win)
 
 win.getMouse()
 win.close()
-
 
 
 
