@@ -102,7 +102,36 @@ def draw_pipes(win):
 	
 	pipe = gr.Rectangle(gr.Point(300,80), gr.Point(310,135))
 	pipe.draw(win)
-	pipe.setFill('#222021')    
+	pipe.setFill('#222021')
+	
+def draw_ghost(win):
+	
+	body = gr.Polygon(gr.Point(460,615), gr.Point(450,645), gr.Point(410,700)
+	, gr.Point(390,730), gr.Point(435,720), gr.Point(445,740), gr.Point(490,715)
+	, gr.Point(525,735), gr.Point(550,710), gr.Point(540,670), gr.Point(510,640), gr.Point(500,600))
+	body.draw(win)
+	body.setFill('silver')
+	
+	head = gr.Circle(gr.Point(475,600),25)
+	head.draw(win)
+	head.setFill('silver')	    
+    
+	eye = gr.Circle(gr.Point(462,602),6)
+	eye.draw(win)
+	eye.setFill('lightblue')
+	
+	eye = gr.Circle(gr.Point(488,598),6)
+	eye.draw(win)
+	eye.setFill('lightblue')
+	
+	pupil = gr.Circle(gr.Point(461,603),2)
+	pupil.draw(win)
+	pupil.setFill('black')
+	
+	pupil = gr.Circle(gr.Point(487,599),2)
+	pupil.draw(win)
+	pupil.setFill('black')
+			 		 
     
 def main(win):
     """draws picture"""
@@ -114,13 +143,12 @@ def main(win):
     draw_roof(win)
     draw_clouds(win)
     draw_pipes(win)
-    #draw_ghost(win)
+    draw_ghost(win)
 
 main(win)
 
 win.getMouse()
 win.close()
-
 
 
 
