@@ -21,17 +21,30 @@ def draw_black_cloud(win):
 	black_cloud.draw(win)
 	black_cloud.setFill('black')
 
-def draw_house(win):
+def draw_wall_and_windows(win):
 	wall = gr.Rectangle(gr.Point(20,150), gr.Point(350,600))
 	wall.draw(win)
-	wall.setFill('brown')
-
+	wall.setFill('#4B3819')
+	
+	left_window = gr.Rectangle(gr.Point(60,470), gr.Point(120,550))
+	left_window.draw(win)
+	left_window.setFill('#492000')
+	
+	middle_window = gr.Rectangle(gr.Point(150,470), gr.Point(210,550))
+	middle_window.draw(win)
+	middle_window.setFill('#492000')
+	
+	right_window = gr.Rectangle(gr.Point(240,470), gr.Point(300,550))
+	right_window.draw(win)
+	right_window.setFill('#FFD801')
+		
+	
 def main(win):
     """draws picture"""
     draw_background(win)
     draw_sun(win)
     draw_black_cloud(win)
-    draw_house(win)
+    draw_wall_and_windows(win)
     #draw_pipes(win)
     #draw_grey_clouds(win)
     #draw_ghost(win)
@@ -40,6 +53,7 @@ main(win)
 
 win.getMouse()
 win.close()
+
 
 
 
