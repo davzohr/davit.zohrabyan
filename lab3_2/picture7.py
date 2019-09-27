@@ -37,14 +37,34 @@ def draw_wall_and_windows(win):
 	right_window = gr.Rectangle(gr.Point(240,470), gr.Point(300,550))
 	right_window.draw(win)
 	right_window.setFill('#FFD801')
-		
 	
+	x=42
+	for i in range(4):
+		window = gr.Rectangle(gr.Point(x,150), gr.Point(x+42,390))
+		window.draw(win)
+		window.setFill('#997950')
+		x+=84
+
+def draw_balcony(win):
+	base = gr.Rectangle(gr.Point(0,400), gr.Point(370,440))
+	base.draw(win)
+	base.setFill('#222021')			
+
+	left_column = gr.Rectangle(gr.Point(5,360), gr.Point(15,400))
+	left_column.draw(win)
+	left_column.setFill('#222021')		
+	
+	right_column = gr.Rectangle(gr.Point(355,360), gr.Point(365,400))
+	right_column.draw(win)
+	right_column.setFill('#222021')		
+    	
 def main(win):
     """draws picture"""
     draw_background(win)
     draw_sun(win)
     draw_black_cloud(win)
     draw_wall_and_windows(win)
+    draw_balcony(win)
     #draw_pipes(win)
     #draw_grey_clouds(win)
     #draw_ghost(win)
@@ -53,9 +73,6 @@ main(win)
 
 win.getMouse()
 win.close()
-
-
-
 
 
 
