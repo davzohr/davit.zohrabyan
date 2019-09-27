@@ -21,12 +21,17 @@ def draw_black_cloud(win):
 	black_cloud.draw(win)
 	black_cloud.setFill('black')
 
+def draw_house(win):
+	wall = gr.Rectangle(gr.Point(20,150), gr.Point(350,600))
+	wall.draw(win)
+	wall.setFill('brown')
+
 def main(win):
     """draws picture"""
     draw_background(win)
     draw_sun(win)
     draw_black_cloud(win)
-    #draw_house(win)
+    draw_house(win)
     #draw_pipes(win)
     #draw_grey_clouds(win)
     #draw_ghost(win)
@@ -35,6 +40,7 @@ main(win)
 
 win.getMouse()
 win.close()
+
 
 
 
