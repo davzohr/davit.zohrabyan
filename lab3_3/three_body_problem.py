@@ -106,23 +106,18 @@ for i in range (1000000):
 	v3x = v3x + (a3x * dt)
 	v3y = v3y + (a3y * dt)
 	
-	trajectory1 = gr.Point(x1,y1)
-	trajectory2 = gr.Point(x2,y2)
-	trajectory3 = gr.Point(x3,y3)
+#	trajectory1 = gr.Point(x1,y1)
+#	trajectory2 = gr.Point(x2,y2)
+#	trajectory3 = gr.Point(x3,y3)
 	
-	trajectory1.draw(window)
-	trajectory2.draw(window)
-	trajectory3.draw(window)
+#	trajectory1.draw(window)
+#	trajectory2.draw(window)
+#	trajectory3.draw(window)
 	
-	trajectory1.setFill('red')
-	trajectory2.setFill('blue')
-	trajectory3.setFill('green')
+#	trajectory1.setFill('red')
+#	trajectory2.setFill('blue')
+#	trajectory3.setFill('green')
 		
-#	gr.time.sleep(0.00002)
-#for i in range (100):
-#	pl1.move(1,1)
-#	gr.time.sleep(0.2)
-
 
 window.getMouse()
 window.close()
