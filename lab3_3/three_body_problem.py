@@ -119,10 +119,6 @@ for i in range (10000):
 	trajectory3.setFill('green')
 		
 	gr.time.sleep(0.2)
-#for i in range (100):
-#	pl1.move(1,1)
-#	gr.time.sleep(0.2)
-
 
 window.getMouse()
 window.close()
