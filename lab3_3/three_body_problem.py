@@ -118,7 +118,7 @@ for i in range (10000):
 	trajectory2.setFill('blue')
 	trajectory3.setFill('green')
 		
-	gr.time.sleep(0.2)
+	gr.time.sleep(0.02)
 
 window.getMouse()
 window.close()
