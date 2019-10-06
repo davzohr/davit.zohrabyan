@@ -1,12 +1,12 @@
 import graphics as gr
 window = gr.GraphWin("three body problem", 600, 600)
 
-dt=0.005
-G=2
+dt=0.0005
+G=2000
 
 m1=10000
 m2=10000
-m3=10000000
+m3=10000
 
 x1=200
 y1=200
@@ -23,7 +23,7 @@ v1y=-300
 v2x=-300
 v2y=300
 
-v3x=0
+v3x=50
 v3y=0
 
 """drawing planets"""
@@ -41,7 +41,7 @@ pl3.setFill('green')
 
 
 """equation_of_motion"""
-for i in range (10000):
+for i in range (1000000):
 	d12 = ((x1-x2)**2+(y1-y2)**2)**0.5
 	d13 = ((x1-x3)**2+(y1-y3)**2)**0.5
 	d23 = ((x2-x3)**2+(y2-y3)**2)**0.5
@@ -118,7 +118,11 @@ for i in range (10000):
 	trajectory2.setFill('blue')
 	trajectory3.setFill('green')
 		
-	gr.time.sleep(0.02)
+#	gr.time.sleep(0.00002)
+#for i in range (100):
+#	pl1.move(1,1)
+#	gr.time.sleep(0.2)
+
 
 window.getMouse()
 window.close()
