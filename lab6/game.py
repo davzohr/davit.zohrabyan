@@ -15,7 +15,6 @@ colors = ['red','orange','yellow','green','blue']
 a=600
 def new_ball():
 	global x, y, r
-#	canv.delete()
 	x = rnd(100,700)
 	y = rnd(100,500)
 	r = rnd(30,50)
