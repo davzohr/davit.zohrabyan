@@ -154,6 +154,20 @@ class gun():
             canv.itemconfig(self.id, fill='orange')
         else:
             canv.itemconfig(self.id, fill='black')
+            
+    def move_up(self, event):
+        self.y -= 1
+        self.set_coords()
+        
+    def move_down(self, event):
+        self.y += 1
+        self.set_coords()
+        
+    def set_coords(self):
+        canv.coords(self.id, 20, self.y,
+                    20 + max(self.f2_power, 20) * math.cos(self.an),
+                    self.y + max(self.f2_power, 20) * math.sin(self.an)
+                    )
 
 
 class target():
@@ -185,7 +199,7 @@ class target():
 t2 = target()
 t1 = target()
 screen1 = canv.create_text(400, 300, text='', font='28')
-g1 = gun()
+g = gun()
 bullet = 0
 balls = []
 
@@ -196,9 +210,11 @@ def new_game(event=''):
     t2.new_target()
     bullet = 0
     balls = []
-    canv.bind('<Button-1>', g1.fire2_start)
-    canv.bind('<ButtonRelease-1>', g1.fire2_end)
-    canv.bind('<Motion>', g1.targetting)
+    canv.bind('<Button-1>', g.fire2_start)
+    canv.bind('<ButtonRelease-1>', g.fire2_end)
+    canv.bind('<Motion>', g.targetting)
+    canv.bind('<Up>', g.move_up)
+    canv.bind('<Down>', g.move_down)
 
     z = 0.03
     t1.live = 1
@@ -224,8 +240,8 @@ def new_game(event=''):
                      t2.hit()
         canv.update()
         time.sleep(0.03)
-        g1.targetting()
-        g1.power_up()  
+        g.targetting()
+        g.power_up()  
     canv.itemconfig(screen1, text='')
     canv.delete(gun)
     root.after(750, new_game)
