@@ -1,69 +1,69 @@
 import graphics as gr
 window = gr.GraphWin("three body problem", 600, 600)
 
-a=0
+a = 0
 global d12
 """importing characteristics of bodies"""
-dt=0.0001
-G=2000
+dt = 0.0001
+G = 2000
 
-m1=10000
-m2=10000
-m3=10000
+m1 = 10000
+m2 = 10000
+m3 = 10000
 
-x1=200
-y1=200
+x1 = 200
+y1 = 200
 
-x2=400
-y2=400
+x2 = 400
+y2 = 400
 
-x3=300
-y3=300
+x3 = 300
+y3 = 300
 
-v1x=300
-v1y=-300
+v1x = 300
+v1y = -300
 
-v2x=-300
-v2y=300
+v2x = -300
+v2y = 300
 
-v3x=0
-v3y=0
+v3x = 0
+v3y = 0
 
 
 def drawing_planets():
     global pl1, pl2, pl3 
     """drawing planets"""
-    pl1 = gr.Circle(gr.Point(x1,y1), 5)
+    pl1 = gr.Circle(gr.Point(x1, y1), 5)
     pl1.draw(window)
     pl1.setFill('red')
 
-    pl2 = gr.Circle(gr.Point(x2,y2), 5)
+    pl2 = gr.Circle(gr.Point(x2, y2), 5)
     pl2.draw(window)
     pl2.setFill('blue')
      
-    pl3 = gr.Circle(gr.Point(x3,y3), 5)
+    pl3 = gr.Circle(gr.Point(x3, y3), 5)
     pl3.draw(window)
     pl3.setFill('green')
 
 
 def distance():
     global d12, d13, d23
-    d12 = ((x1-x2) ** 2 + (y1-y2) ** 2) ** 0.5
-    d13 = ((x1-x3) ** 2 + (y1-y3) ** 2) ** 0.5
-    d23 = ((x2-x3) ** 2 + (y2-y3) ** 2) ** 0.5
+    d12 = ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
+    d13 = ((x1 - x3) ** 2 + (y1 - y3) ** 2) ** 0.5
+    d23 = ((x2 - x3) ** 2 + (y2 - y3) ** 2) ** 0.5
 
 
 def force_laws():
     global force12x, force12y, force13x, force13y, force23x, force23y
     """force_laws"""
-    force12x = G * m1 * m2 / d12**2 * (x2-x1) / d12
-    force12y = G * m1 * m2 / d12**2 * (y2-y1) / d12
+    force12x = G * m1 * m2 / d12 ** 2 * (x2 - x1) / d12
+    force12y = G * m1 * m2 / d12 ** 2 * (y2 - y1) / d12
 
-    force13x = G * m1 * m3 / d13**2 * (x3-x1) / d13
-    force13y = G * m1 * m3 / d13**2 * (y3-y1) / d13
+    force13x = G * m1 * m3 / d13 ** 2 * (x3 - x1) / d13
+    force13y = G * m1 * m3 / d13 ** 2 * (y3 - y1) / d13
 
-    force23x = G * m2 * m3 / d23**2 * (x3-x2) / d23
-    force23y = G * m2 * m3 / d23**2 * (y3-y2) / d23
+    force23x = G * m2 * m3 / d23 ** 2 * (x3 - x2) / d23
+    force23y = G * m2 * m3 / d23 ** 2 * (y3 - y2) / d23
 
 
 def acceleration():
@@ -104,21 +104,21 @@ def change_of_coordinates():
 def motion_of_planets():
     global pl1, pl2, pl3
 
-    pl1.move(dx1,dy1)
+    pl1.move(dx1, dy1)
 
-    pl2.move(dx2,dy2)
+    pl2.move(dx2, dy2)
 
-    pl3.move(dx3,dy3)
+    pl3.move(dx3, dy3)
 
 
 def change_of_velocities():
     global v1x, v1y, v2x, v2y, v3x, v3y 
-    """velocity_changing_laws"""		
+    """velocity_changing_laws"""
     v1x = v1x + (a1x * dt)
-    v1y = v1y + (a1y * dt)	
+    v1y = v1y + (a1y * dt)
 
     v2x = v2x + (a2x * dt)
-    v2y = v2y + (a2y * dt)	
+    v2y = v2y + (a2y * dt)
 
     v3x = v3x + (a3x * dt)
     v3y = v3y + (a3y * dt)
@@ -127,10 +127,10 @@ def change_of_velocities():
 def drawing_trajectories():
     global a
     """trajectoies of planets"""
-    if a%500==0:
-        trajectory1 = gr.Point(x1,y1)
-        trajectory2 = gr.Point(x2,y2)
-        trajectory3 = gr.Point(x3,y3)
+    if a % 500 == 0:
+        trajectory1 = gr.Point(x1, y1)
+        trajectory2 = gr.Point(x2, y2)
+        trajectory3 = gr.Point(x3, y3)
 
         trajectory1.draw(window)
         trajectory2.draw(window)
@@ -139,9 +139,9 @@ def drawing_trajectories():
         trajectory1.setFill('red')
         trajectory2.setFill('blue')
         trajectory3.setFill('green')
-        a+=1
+        a += 1
     else:
-        a+=1
+        a += 1
 
 drawing_planets()
 
