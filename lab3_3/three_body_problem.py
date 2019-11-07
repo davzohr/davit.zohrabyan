@@ -29,6 +29,7 @@ v2y=300
 v3x=0
 v3y=0
 
+
 def drawing_planets():
     global pl1, pl2, pl3 
     """drawing planets"""
@@ -43,6 +44,7 @@ def drawing_planets():
     pl3 = gr.Circle(gr.Point(x3,y3), 5)
     pl3.draw(window)
     pl3.setFill('green')
+
 
 def distance():
     global d12, d13, d23
@@ -64,7 +66,6 @@ def force_laws():
     force23y = G * m2 * m3 / d23**2 * (y3-y2) / d23
 
 
-
 def acceleration():
     global a1x, a2x, a3x, a1y, a2y, a3y 
     """acceleration changing law"""	
@@ -76,6 +77,7 @@ def acceleration():
     
     a3x = (-force13x - force23x) / m3
     a3y = (-force13y - force23y) / m3
+
 
 def change_of_coordinates(): 
     global x1, y1, x2, y2, x3, y3, dx1, dx2, dx3, dy1, dy2, dy3
@@ -98,6 +100,7 @@ def change_of_coordinates():
     dx3 = v3x * dt
     dy3 = v3y * dt
 
+
 def motion_of_planets():
     global pl1, pl2, pl3
 
@@ -106,6 +109,7 @@ def motion_of_planets():
     pl2.move(dx2,dy2)
 
     pl3.move(dx3,dy3)
+
 
 def change_of_velocities():
     global v1x, v1y, v2x, v2y, v3x, v3y 
@@ -118,6 +122,7 @@ def change_of_velocities():
 
     v3x = v3x + (a3x * dt)
     v3y = v3y + (a3y * dt)
+
 
 def drawing_trajectories():
     global a
@@ -140,6 +145,7 @@ def drawing_trajectories():
 
 drawing_planets()
 
+
 def motion():
     distance()
     force_laws()
@@ -148,6 +154,7 @@ def motion():
     motion_of_planets()
     change_of_velocities()
     drawing_trajectories()
+
 
 for i in range(1000000):
     motion()
