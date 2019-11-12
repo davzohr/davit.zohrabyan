@@ -277,8 +277,12 @@ class Gun(Agent):
 
     def fire2_end(self, event):
         self.update_angle()
-        bullet_vx = self.f2_power * math.cos(self.an)
-        bullet_vy = -self.f2_power * math.sin(self.an)
+        if self.gun_coords[0] < 400:
+            bullet_vx = self.f2_power * math.cos(self.an)
+            bullet_vy = -self.f2_power * math.sin(self.an)
+        else:
+            bullet_vx = -self.f2_power * math.cos(self.an)
+            bullet_vy = self.f2_power * math.sin(self.an)
         bullet = Ball(self.canvas, * self.get_gunpoint(), bullet_vx, -bullet_vy)
         bullet.start()
         self.f2_on = 0
