@@ -237,18 +237,28 @@ class Gun(Agent):
         self.job = self.canvas.after(DT, self.update)
 
     def update_angle(self):
-        self.mouse_coords = self.canvas.get_mouse_coords()
-        dx = self.mouse_coords[0]-self.gun_coords[0]
-        dy = -self.mouse_coords[1]+self.gun_coords[1]
+        if self.gun_coords[0] < 400:
+            self.mouse_coords = self.canvas.get_mouse_coords()
+            dx = self.mouse_coords[0] - self.gun_coords[0]
+            dy = -self.mouse_coords[1] + self.gun_coords[1]
+        else:
+            self.mouse_coords = self.canvas.get_mouse_coords()
+            dx = -self.mouse_coords[0] + self.gun_coords[0]
+            dy = self.mouse_coords[1] - self.gun_coords[1]
         if dx != 0:
             self.an = math.atan(dy / dx)
         else:
             self.an = 1
 
     def get_gunpoint(self):
-        length = self.f2_power + self.zero_power_length
-        x = self.gun_coords[0] + length * math.cos(self.an)
-        y = self.gun_coords[1] - length * math.sin(self.an)
+        if self.gun_coords[0] < 400:
+            length = self.f2_power + self.zero_power_length
+            x = self.gun_coords[0] + length * math.cos(self.an)
+            y = self.gun_coords[1] - length * math.sin(self.an)
+        else:
+            length = self.f2_power + self.zero_power_length
+            x = self.gun_coords[0] - length * math.cos(self.an)
+            y = self.gun_coords[1] + length * math.sin(self.an)
         return x, y
 
     def redraw(self):
@@ -410,10 +420,6 @@ class BattleField(tk.Canvas):
         self.targets = {}
         self.bullets = {}
 
-        self.gun = Gun(self)
-        self.targets = {}
-        self.bullets = {}
-                
         # Переменная для присвоения номеров выпущенным пулям.
         # Номера используются для определения, каким по счету выстрелом была
         # уничтожена цель. Отсчет начинается с единицы.
@@ -484,7 +490,8 @@ class BattleField(tk.Canvas):
 
     def play(self):
         self.play_jobs()
-        self.gun.play()
+        self.gun1.play()
+        self.gun2.play()
         for t in self.targets.values():
             t.play()
         for b in self.bullets.values():
