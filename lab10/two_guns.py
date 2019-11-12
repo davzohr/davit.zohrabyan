@@ -609,13 +609,17 @@ class BattleField(tk.Canvas):
         self.canvas_restart_job = \
             job_init if state['canvas_restart_job'] else None
             
-    def gun_change(self):
+    def gun_change(self, event):
         if self.gun1.job == None:
             self.gun2.stop()
             self.gun1.start()
         else:
             self.gun1.stop()
             self.gun2.start()
+        if pushka == 'left':
+            pushka = 'right'
+        else:
+            pushka = 'left'
 
 
 class MainFrame(tk.Frame):
